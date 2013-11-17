@@ -1,0 +1,26 @@
+﻿@model MvcApplication1.Models.data
+@{
+    ViewBag.Title = "New";
+    Layout = "~/Views/Shared/_AjaxLayout.cshtml";
+}
+<form class="form-horizontal" method="post" action="/List/Add">
+<div class="control-group">
+    <label class="control-label" for="inputEmail">@Html.LabelFor(m => m.fin)</label>
+    <div class="controls">
+        @Html.TextBoxFor(m => m.fin)
+    </div>
+</div>
+<div class="control-group">
+    <label class="control-label" for="inputPassword">@Html.LabelFor(m => m.fout)</label>
+    <div class="controls">
+        @Html.TextBoxFor(m => m.fout)
+    </div>
+</div>
+<div class="control-group">
+    <label class="control-label" for="inputPassword">@Html.LabelFor(m => m.flow)</label>
+    <div class="controls bindTdCloseIcon">
+        @Html.TextBoxFor(m => m.flow)
+    </div>
+</div>
+<input type="hidden" name="flag" id="flag" value="@Request.QueryString["pageid"]" />
+</form>

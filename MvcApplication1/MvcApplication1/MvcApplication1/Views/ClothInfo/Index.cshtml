@@ -1,0 +1,219 @@
+﻿@model MvcApplication1.Models.cloth
+@{
+    ViewBag.Title = "Index";
+}
+<script type="text/javascript" src="@Url.Content("~/Scripts/jquery-1.9.1.min.js")"></script>
+<script type="text/javascript" src="@Url.Content("~/Scripts/jquery-ui-1.8.24.min.js")"></script>
+<script type="text/javascript" src="@Url.Content("~/Scripts/bootstrap.min.js")"></script>
+<script type="text/javascript" src="@Url.Content("~/Scripts/Add1.js")"></script>
+
+
+<div align=center valign=middle>
+<form class="form-horizontal" method="post" action="/ClothInfo/Add">
+ <table  id="dataTable" width="400"  >
+  <tr>
+        <th>
+           属性
+        </th>
+        <th>
+           数值
+        </th>
+  </tr>
+   <tr class="success">
+      <tr class="success">
+        <td>
+           <label class="control-label" for="inputPassword">成分</label>
+        </td>
+        <td>
+        <label class="control-label" for="inputEmail">@Html.LabelFor(m => m.chengfen)</label>
+         <input type="text" name="out0" value= @Html.DisplayFor(m => m.chengfen) >
+        </td>
+    </tr>
+    <tr class="success">
+        <td>
+           <label class="control-label" for="inputPassword">厚度</label>
+        </td>
+        <td>
+         <input type="text" name="out0" value= @Html.DisplayFor(m => m.houdu) >
+        </td>
+    </tr>
+   <tr class="success">
+        <td>
+           <label class="control-label" for="inputPassword">透气性</label>
+        </td>
+        <td>
+         <input type="text" name="out0" value= @Html.DisplayFor(m => m.touqixing) >
+        </td>
+    </tr>
+    <tr class="success">
+        <td>
+           <label class="control-label" for="inputPassword">悬垂性</label>
+        </td>
+        <td>
+         <input type="text" name="out0" value= @Html.DisplayFor(m => m.xuanchuixing) >
+        </td>
+    </tr>
+     <tr class="success">
+        <td>
+           <label class="control-label" for="inputPassword">衣领</label>
+        </td>
+        <td>
+         <input type="text" name="out0" value= @Html.DisplayFor(m => m.yiling) >
+        </td>
+    </tr>
+     <tr class="success">
+        <td>
+           <label class="control-label" for="inputPassword">袖口</label>
+        </td>
+        <td>
+         <input type="text" name="out0" value= @Html.DisplayFor(m => m.xiukou) >
+        </td>
+    </tr>
+     <tr class="success">
+        <td>
+           <label class="control-label" for="inputPassword">底摆</label>
+        </td>
+        <td>
+         <input type="text" name="out0" value= @Html.DisplayFor(m => m.dibai) >
+        </td>
+    </tr>
+    <tr class="success">
+        <td>
+           <label class="control-label" for="inputPassword">其它开口部位</label>
+        </td>
+        <td>
+         <input type="text" name="out0" value= @Html.DisplayFor(m => m.qitakaikou) >
+        </td>
+    </tr>
+    <tr class="success">
+        <td>
+           <label class="control-label" for="inputPassword">号型</label>
+        </td>
+        <td>
+         <input type="text" name="out0" value= @Html.DisplayFor(m => m.haoxing) >
+        </td>
+    </tr>
+     <tr class="success">
+        <td>
+           <label class="control-label" for="inputPassword">领围</label>
+        </td>
+        <td>
+         <input type="text" name="out0" value= @Html.DisplayFor(m => m.lingwei) >
+        </td>
+    </tr>
+    <tr class="success">
+        <td>
+           <label class="control-label" for="inputPassword">袖口围</label>
+        </td>
+        <td>
+         <input type="text" name="out0" value= @Html.DisplayFor(m => m.xiukouwei) >
+        </td>
+    </tr>
+    <tr class="success">
+        <td>
+           <label class="control-label" for="inputPassword">下摆围</label>
+        </td>
+        <td>
+         <input type="text" name="out0" value= @Html.DisplayFor(m => m.xiabaiwei) >
+        </td>
+    </tr>
+      <tr class="success">
+        <td>
+           <label class="control-label" for="inputPassword">其他</label>
+        </td>
+        <td>
+         <input type="text" name="out0" value= @Html.DisplayFor(m => m.qita) >
+        </td>
+    </tr>
+    <tr>
+     <td>
+      </td>
+      <td>
+      <button class="btn btn-primary" id="btnAddUser1">保存</button>
+      </td>
+    </tr>
+  </table>
+  </form>
+  </div>
+@*<form class="form-horizontal" method="post" action="/List/Add">
+<div class="control-group">
+    <label class="control-label" for="inputEmail">成分</label>
+    <div class="controls">
+        @Html.TextBoxFor(m => m.chengfen)
+    </div>
+</div>
+<div class="control-group">
+    <label class="control-label" for="inputPassword">厚度</label>
+    <div class="controls">
+        @Html.TextBoxFor(m => m.houdu)
+    </div>
+</div>
+<div class="control-group">
+    <label class="control-label" for="inputPassword">透气性</label>
+    <div class="controls bindTdCloseIcon">
+        @Html.TextBoxFor(m => m.touqixing)
+    </div>
+</div>
+<div class="control-group">
+    <label class="control-label" for="inputPassword">悬垂性</label>
+    <div class="controls">
+        @Html.TextBoxFor(m => m.xuanchuixing)
+    </div>
+</div>
+<div class="control-group">
+    <label class="control-label" for="inputPassword">衣领</label>
+    <div class="controls">
+        @Html.TextBoxFor(m => m.yiling)
+    </div>
+</div>
+<div class="control-group">
+    <label class="control-label" for="inputPassword">袖口</label>
+    <div class="controls">
+        @Html.TextBoxFor(m => m.xiukou)
+    </div>
+</div>
+<div class="control-group">
+    <label class="control-label" for="inputPassword">底摆</label>
+    <div class="controls">
+        @Html.TextBoxFor(m => m.dibai)
+    </div>
+</div>
+<div class="control-group">
+    <label class="control-label" for="inputPassword">其它开口部位</label>
+    <div class="controls">
+        @Html.TextBoxFor(m => m.qitakaikou)
+    </div>
+</div>
+<div class="control-group">
+    <label class="control-label" for="inputPassword">号型</label>
+    <div class="controls">
+        @Html.TextBoxFor(m => m.haoxing)
+    </div>
+</div>
+<div class="control-group">
+    <label class="control-label" for="inputPassword">领围</label>
+    <div class="controls">
+        @Html.TextBoxFor(m => m.lingwei)
+    </div>
+</div>
+<div class="control-group">
+    <label class="control-label" for="inputPassword">袖口围</label>
+    <div class="controls">
+        @Html.TextBoxFor(m => m.xiukouwei)
+    </div>
+</div>
+<div class="control-group">
+    <label class="control-label" for="inputPassword">下摆围</label>
+    <div class="controls">
+        @Html.TextBoxFor(m => m.xiabaiwei)
+    </div>
+</div>
+<div class="control-group">
+    <label class="control-label" for="inputPassword">其他</label>
+    <div class="controls">
+        @Html.TextBoxFor(m => m.qita)
+    </div>
+</div>
+<input type="hidden" name="flag" id="flag" value="@Request.QueryString["pageid"]" />
+</form>
+*@

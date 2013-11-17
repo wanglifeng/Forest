@@ -1,0 +1,204 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="forecastflowModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="forecastflowModelStoreContainer">
+          <EntitySet Name="ave" EntityType="forecastflowModel.Store.ave" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="cloth" EntityType="forecastflowModel.Store.cloth" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="data" EntityType="forecastflowModel.Store.data" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="dic" EntityType="forecastflowModel.Store.dic" store:Type="Tables" Schema="dbo" />
+        </EntityContainer>
+        <EntityType Name="ave">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="flag" Type="int" />
+          <Property Name="cout" Type="decimal" Scale="4" />
+          <Property Name="cin" Type="numeric" Scale="4" />
+          <Property Name="cflow" Type="numeric" Scale="4" />
+          <Property Name="tongfeng" Type="numeric" Scale="4" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" />
+          <Property Name="clothId" Type="int" />
+        </EntityType>
+        <EntityType Name="cloth">
+          <Key>
+            <PropertyRef Name="clothid" />
+          </Key>
+          <Property Name="clothid" Type="int" Nullable="false" />
+          <Property Name="chengfen" Type="nvarchar" MaxLength="50" />
+          <Property Name="houdu" Type="nvarchar" MaxLength="50" />
+          <Property Name="touqixing" Type="nvarchar" MaxLength="50" />
+          <Property Name="yiling" Type="nvarchar" MaxLength="50" />
+          <Property Name="xiukou" Type="nvarchar" MaxLength="50" />
+          <Property Name="dibai" Type="nvarchar" MaxLength="50" />
+          <Property Name="qitakaikou" Type="nvarchar" MaxLength="50" />
+          <Property Name="haoxing" Type="nvarchar" MaxLength="50" />
+          <Property Name="lingwei" Type="nvarchar" MaxLength="50" />
+          <Property Name="xiukouwei" Type="nvarchar" MaxLength="50" />
+          <Property Name="xiabaiwei" Type="nvarchar" MaxLength="50" />
+          <Property Name="qita" Type="nvarchar" MaxLength="50" />
+          <Property Name="xuanchuixing" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="data">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="fin" Type="numeric" Scale="4" />
+          <Property Name="fout" Type="numeric" Scale="4" />
+          <Property Name="flow" Type="numeric" Nullable="false" Scale="4" />
+          <Property Name="flag" Type="int" />
+        </EntityType>
+        <EntityType Name="dic">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="flag" Type="int" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="forecastflowModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="forecastflowEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ave" EntityType="forecastflowModel.ave" />
+          <EntitySet Name="data" EntityType="forecastflowModel.data" />
+          <EntitySet Name="dic" EntityType="forecastflowModel.dic" />
+          <EntitySet Name="cloth" EntityType="forecastflowModel.cloth" />
+        </EntityContainer>
+        <EntityType Name="ave">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="flag" Type="Int32" />
+          <Property Name="cout" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="cin" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="cflow" Type="Decimal" Precision="18" Scale="0" />
+          <Property Type="String" Name="name" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Decimal" Name="tongfeng" Precision="18" Scale="4" />
+          <Property Type="Int32" Name="clothId" />
+        </EntityType>
+        <EntityType Name="data">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fin" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="fout" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="flow" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="flag" Type="Int32" />
+        </EntityType>
+        <EntityType Name="dic">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="flag" />
+          <Property Type="String" Name="name" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="cloth">
+          <Key>
+            <PropertyRef Name="clothid" />
+          </Key>
+          <Property Type="Int32" Name="clothid" Nullable="false" />
+          <Property Type="String" Name="chengfen" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="houdu" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="touqixing" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="yiling" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="xiukou" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="dibai" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="qitakaikou" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="haoxing" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="lingwei" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="xiukouwei" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="xiabaiwei" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="qita" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="xuanchuixing" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="forecastflowModelStoreContainer" CdmEntityContainer="forecastflowEntities1">
+          <EntitySetMapping Name="ave"><EntityTypeMapping TypeName="forecastflowModel.ave"><MappingFragment StoreEntitySet="ave">
+            <ScalarProperty Name="clothId" ColumnName="clothId" />
+                <ScalarProperty Name="tongfeng" ColumnName="tongfeng" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+            <ScalarProperty Name="flag" ColumnName="flag" />
+            <ScalarProperty Name="cout" ColumnName="cout" />
+            <ScalarProperty Name="cin" ColumnName="cin" />
+            <ScalarProperty Name="cflow" ColumnName="cflow" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="data"><EntityTypeMapping TypeName="forecastflowModel.data"><MappingFragment StoreEntitySet="data">
+            <ScalarProperty Name="id" ColumnName="id" />
+            <ScalarProperty Name="fin" ColumnName="fin" />
+            <ScalarProperty Name="fout" ColumnName="fout" />
+            <ScalarProperty Name="flow" ColumnName="flow" />
+            <ScalarProperty Name="flag" ColumnName="flag" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="dic">
+            <EntityTypeMapping TypeName="forecastflowModel.dic">
+              <MappingFragment StoreEntitySet="dic">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="flag" ColumnName="flag" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="cloth">
+            <EntityTypeMapping TypeName="forecastflowModel.cloth">
+              <MappingFragment StoreEntitySet="cloth">
+                <ScalarProperty Name="xuanchuixing" ColumnName="xuanchuixing" />
+                <ScalarProperty Name="qita" ColumnName="qita" />
+                <ScalarProperty Name="xiabaiwei" ColumnName="xiabaiwei" />
+                <ScalarProperty Name="xiukouwei" ColumnName="xiukouwei" />
+                <ScalarProperty Name="lingwei" ColumnName="lingwei" />
+                <ScalarProperty Name="haoxing" ColumnName="haoxing" />
+                <ScalarProperty Name="qitakaikou" ColumnName="qitakaikou" />
+                <ScalarProperty Name="dibai" ColumnName="dibai" />
+                <ScalarProperty Name="xiukou" ColumnName="xiukou" />
+                <ScalarProperty Name="yiling" ColumnName="yiling" />
+                <ScalarProperty Name="touqixing" ColumnName="touqixing" />
+                <ScalarProperty Name="houdu" ColumnName="houdu" />
+                <ScalarProperty Name="chengfen" ColumnName="chengfen" />
+                <ScalarProperty Name="clothid" ColumnName="clothid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="Model1">
+        <EntityTypeShape EntityType="forecastflowModel.ave" Width="1.5" PointX="0.75" PointY="0.75" Height="1.9700325520833331" IsExpanded="true" />
+        <EntityTypeShape EntityType="forecastflowModel.data" Width="1.5" PointX="2.75" PointY="0.75" Height="1.9700325520833335" IsExpanded="true" />
+        <EntityTypeShape EntityType="forecastflowModel.dic" Width="1.5" PointX="0.75" PointY="3.75" Height="1.5879931640624996" />
+        <EntityTypeShape EntityType="forecastflowModel.cloth" Width="1.5" PointX="3.375" PointY="3.75" Height="3.1397916666666656" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

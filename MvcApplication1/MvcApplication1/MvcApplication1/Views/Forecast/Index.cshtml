@@ -1,0 +1,51 @@
+﻿@model MvcApplication1.Models.Indexdata
+@{
+    ViewBag.Title = "Index";
+}
+<script language="javascript">
+      function gotoForcast(linkObj) {
+          $(linkObj).attr('href', "/Forecast/forcast?cair=" + $('#cair').val());
+      }
+ </script>  
+<form name="myform" id="form1" runat="server">  
+<table   id="dataTable" class="table table-striped table-bordered table-hover table-condensed">
+  <th>Cair：周围环境中示踪气体浓度(%)
+  </th>
+    <th>整体通风值<br>
+    (L/min)</th>
+  <tr  class="warning">
+   <td><input type="text" name="cair" id="cair" value="@ViewBag.mess"><br/><a href="#" onclick="gotoForcast(this)" role="button" class="btn  btn-primary " >预测通风值</a>
+    </td>
+   <td>
+   <input type="text" name="outpingju" id="nn" value="@ViewBag.Message" />  
+   </td>
+   </tr> 
+  </table>
+ <table   id="dataTable" class="table table-striped table-bordered table-hover table-condensed">
+<th>服装部位</th>
+<th> Cout：衣下空间示踪气体浓度平均值<br>(%)</th>
+<th> Cin：输入到衣下空间示踪气体浓度平均值<br>(%)</th>
+<th> Flowrate：局部系统循环流量平均值<br>(L/min)</th>
+<th>局部通风值<br></th>
+ @foreach (var item in Model.ave)
+ {
+    <tr class="info">
+    <td>
+    <input type="text" name="namename" id="nn" value= @Html.DisplayFor(modelItem => item.name)  />
+    </td>
+    <td>
+   <input type="text" name="outpingju" id="nn" value= @Html.DisplayFor(modelItem => item.cout) />  
+   </td>
+   <td>
+   <input type="text" name="inpingju" id="nn"   value= @Html.DisplayFor(modelItem => item.cin) /> 
+    </td>
+   <td>
+   <input type="text" name="flowpingju" id="nn"   value= @Html.DisplayFor(modelItem => item.cflow) /> 
+    </td>
+    <td>
+   <input type="text" name="flowpingju" id="nn"   value= @Html.DisplayFor(modelItem => item.tongfeng) /> 
+    </td>
+   </tr> 
+ }
+ </table>
+  </form>  

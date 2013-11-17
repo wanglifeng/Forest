@@ -1,0 +1,140 @@
+﻿@model MvcApplication1.Models.Indexdata
+
+
+<script type="text/javascript" src="@Url.Content("~/Scripts/jquery-1.9.1.min.js")"></script>
+<script type="text/javascript" src="@Url.Content("~/Scripts/jquery-ui-1.8.24.min.js")"></script>
+<script type="text/javascript" src="@Url.Content("~/Scripts/bootstrap.min.js")"></script>
+<script type="text/javascript" src="@Url.Content("~/Scripts/AddUser.js")"></script>
+ <script language="javascript">
+      function showTable(id) {
+          var tb = document.getElementById(id);
+          var rows = tb.rows;
+          var oflow = new Number;
+          var iflow = new Number;
+          var pflow = new Number;
+          pflow = 0;
+          oflow = 0;
+          iflow = 0;
+          for (var i = 1; i < rows.length; i++) {
+              var cells = rows[i].cells;
+              oflow += cells[1].childNodes[0].value * cells[3].childNodes[0].value;
+              iflow += cells[2].childNodes[0].value * cells[3].childNodes[0].value;
+              pflow += cells[3].childNodes[0].value * 1;
+
+
+              myform.outpingju.value = oflow / pflow;
+              myform.inpingju.value = iflow / pflow;
+              myform.flowpingju.value = pflow / (rows.length - 1);
+          }
+
+      }
+      function showTd(id) {
+          var td = document.getElementById(id);
+          var cell = td.parentElement;
+          alert(cell.childNodes[0].value);
+          alert(cell.cellIndex);
+      }
+
+      function gotoForcast(linkObj) {
+          $(linkObj).attr('href', "/List/forcast?cair=" + $('#cair').val()+"&pageid=" + @Request.QueryString["pageid"]);
+      }
+ </script>  
+@*  <table   id="dataTable" class="table table-striped table-bordered table-hover table-condensed">
+  <th>Cair：周围环境中示踪气体浓度(%)
+  </th>
+    <th>局部通风值<br>
+    (L/min)</th>
+  <tr  class="warning">
+    <td><input type="text" name="cair" id="cair" value="@ViewBag.mess"><br/><a href="#" onclick="gotoForcast(this)" role="button" class="btn  btn-primary " >预测通风值</a>
+    </td>
+   <td>
+   <input type="text" name="outpingju" id="nn" value=0 />  
+   </td>
+   </tr> 
+  </table>
+ @*<button class="btn btn-info" id="btnAddUser">平均值</button>*@
+ <h1>@ViewBag.m</h1>
+ <form name="myform">  
+ <table   id="dataTable" class="table table-striped table-bordered table-hover table-condensed">
+ @foreach (var item in Model.ave )
+ {
+   <th>Cout：衣下空间示踪气体浓度平均值(%)
+   </th>
+   <th>Cin：输入到衣下空间示踪气体浓度平均值(%)
+   </th>
+   <th>Flowrate：局部系统循环流量平均值(L/min)
+     </th>
+    <tr  class="warning">
+    <td>
+   <input type="text" name="outpingju" id="nn" value= @Html.DisplayFor(modelItem => item.cout) />  
+   </td>
+   <td>
+   <input type="text" name="inpingju" id="nn"   value= @Html.DisplayFor(modelItem => item.cin) /> 
+    </td>
+   <td>
+   <input type="text" name="flowpingju" id="nn"   value= @Html.DisplayFor(modelItem => item.cflow) /> 
+    </td>
+   </tr> 
+ }
+ </table>
+  </form> 
+<p>
+
+@* <li>@Html.ActionLink("右臂通风计算", "add", "List", new { pageid = 1 }, null)</li>*@
+
+
+<table   id="dataTable" class="table table-striped table-bordered table-hover table-condensed">
+    <tr>
+        <th>
+
+        </th>
+        <th>
+            Cout(i)：衣下空间示踪气体浓度<br>(%)
+        </th>
+        <th>
+            Cin(i)：输入到衣下空间示踪气体浓度<br>(%)
+        </th>
+        <th>
+            Flowrate(i)：局部系统循环流量<br>(L/min)
+        </th>
+        <th>
+        </th>
+    </tr>
+@{var count=0;
+foreach (var item in Model.data)
+{
+    count++;
+    var val = "第" + count + "组数据";
+    <tr class="success">
+        <td>
+           <input type="text" name="out0" value="@val" />
+        </td>
+        <td>
+           <input type="text" name="out0" value= @Html.DisplayFor(modelItem => item.fout) />
+        </td>
+        <td>
+         <input type="text" name="out0" value= @Html.DisplayFor(modelItem => item.fin) />        
+        </td>
+        <td>
+        <input type="text" name="out0" value=    @Html.DisplayFor(modelItem => item.flow) />     
+        </td>
+        <td>
+            @Html.ActionLink("Delete", "Delete", new { id = item.id, pageid = Request.QueryString["pageid"] })
+        </td>
+    </tr>
+}
+}
+</table>
+<a href="/List/add?pageid=@Request.QueryString["pageid"]" role="button" class="btn  btn-info" data-target="#myModal" data-toggle="modal">添加数据</a>
+<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel"><img src="@Url.Content("~/Images/logo.gif")" />添加数据</h3>
+    </div>
+    <div class="modal-body">
+    </div>
+    <div class="modal-footer">
+        <button class="btn" id="btnClose" data-dismiss="modal" aria-hidden="true">关闭</button>
+        <button class="btn btn-primary" id="btnAddUser">保存</button>
+    </div>
+</div>
