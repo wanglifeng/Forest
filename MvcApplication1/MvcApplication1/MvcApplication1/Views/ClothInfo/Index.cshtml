@@ -9,7 +9,6 @@
 
 
 <div align=center valign=middle>
-<form class="form-horizontal" method="post" action="/ClothInfo/Add">
  <table  id="dataTable" width="400"  >
   <tr>
         <th>
@@ -26,7 +25,7 @@
         </td>
         <td>
         <label class="control-label" for="inputEmail">@Html.LabelFor(m => m.chengfen)</label>
-         <input type="text" name="out0" value= @Html.DisplayFor(m => m.chengfen) >
+         <input type="text" name="out0" id="chengfen" value= @Html.DisplayFor(m => m.chengfen) >
         </td>
     </tr>
     <tr class="success">
@@ -34,7 +33,7 @@
            <label class="control-label" for="inputPassword">厚度</label>
         </td>
         <td>
-         <input type="text" name="out0" value= @Html.DisplayFor(m => m.houdu) >
+         <input type="text" name="out0" id="houdu" value= @Html.DisplayFor(m => m.houdu) >
         </td>
     </tr>
    <tr class="success">
@@ -42,7 +41,7 @@
            <label class="control-label" for="inputPassword">透气性</label>
         </td>
         <td>
-         <input type="text" name="out0" value= @Html.DisplayFor(m => m.touqixing) >
+         <input type="text" name="out0" id="touqixing" value= @Html.DisplayFor(m => m.touqixing) >
         </td>
     </tr>
     <tr class="success">
@@ -50,7 +49,7 @@
            <label class="control-label" for="inputPassword">悬垂性</label>
         </td>
         <td>
-         <input type="text" name="out0" value= @Html.DisplayFor(m => m.xuanchuixing) >
+         <input type="text" name="out0" id="xuanchuixing" value= @Html.DisplayFor(m => m.xuanchuixing) >
         </td>
     </tr>
      <tr class="success">
@@ -58,7 +57,7 @@
            <label class="control-label" for="inputPassword">衣领</label>
         </td>
         <td>
-         <input type="text" name="out0" value= @Html.DisplayFor(m => m.yiling) >
+         <input type="text" name="out0" id="yiling" value= @Html.DisplayFor(m => m.yiling) >
         </td>
     </tr>
      <tr class="success">
@@ -66,7 +65,7 @@
            <label class="control-label" for="inputPassword">袖口</label>
         </td>
         <td>
-         <input type="text" name="out0" value= @Html.DisplayFor(m => m.xiukou) >
+         <input type="text" name="out0" id="xiukou" value= @Html.DisplayFor(m => m.xiukou) >
         </td>
     </tr>
      <tr class="success">
@@ -74,7 +73,7 @@
            <label class="control-label" for="inputPassword">底摆</label>
         </td>
         <td>
-         <input type="text" name="out0" value= @Html.DisplayFor(m => m.dibai) >
+         <input type="text" name="out0" id="dibai" value= @Html.DisplayFor(m => m.dibai) >
         </td>
     </tr>
     <tr class="success">
@@ -82,7 +81,7 @@
            <label class="control-label" for="inputPassword">其它开口部位</label>
         </td>
         <td>
-         <input type="text" name="out0" value= @Html.DisplayFor(m => m.qitakaikou) >
+         <input type="text" name="out0" id="qitakaikou" value= @Html.DisplayFor(m => m.qitakaikou) >
         </td>
     </tr>
     <tr class="success">
@@ -90,7 +89,7 @@
            <label class="control-label" for="inputPassword">号型</label>
         </td>
         <td>
-         <input type="text" name="out0" value= @Html.DisplayFor(m => m.haoxing) >
+         <input type="text" name="out0" id="haoxing" value= @Html.DisplayFor(m => m.haoxing) >
         </td>
     </tr>
      <tr class="success">
@@ -98,7 +97,7 @@
            <label class="control-label" for="inputPassword">领围</label>
         </td>
         <td>
-         <input type="text" name="out0" value= @Html.DisplayFor(m => m.lingwei) >
+         <input type="text" name="out0" id="lingwei" value= @Html.DisplayFor(m => m.lingwei) >
         </td>
     </tr>
     <tr class="success">
@@ -106,7 +105,7 @@
            <label class="control-label" for="inputPassword">袖口围</label>
         </td>
         <td>
-         <input type="text" name="out0" value= @Html.DisplayFor(m => m.xiukouwei) >
+         <input type="text" name="out0" id="xiukouwei" value= @Html.DisplayFor(m => m.xiukouwei) >
         </td>
     </tr>
     <tr class="success">
@@ -114,7 +113,7 @@
            <label class="control-label" for="inputPassword">下摆围</label>
         </td>
         <td>
-         <input type="text" name="out0" value= @Html.DisplayFor(m => m.xiabaiwei) >
+         <input type="text" name="out0" id="xiabaiwei" value= @Html.DisplayFor(m => m.xiabaiwei) >
         </td>
     </tr>
       <tr class="success">
@@ -122,7 +121,7 @@
            <label class="control-label" for="inputPassword">其他</label>
         </td>
         <td>
-         <input type="text" name="out0" value= @Html.DisplayFor(m => m.qita) >
+         <input type="text" name="out0" id="qita" value= @Html.DisplayFor(m => m.qita) >
         </td>
     </tr>
     <tr>
@@ -133,7 +132,6 @@
       </td>
     </tr>
   </table>
-  </form>
   </div>
 @*<form class="form-horizontal" method="post" action="/List/Add">
 <div class="control-group">
