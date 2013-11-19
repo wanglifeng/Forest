@@ -128,6 +128,7 @@ namespace MvcApplication1.Controllers
                 _db.ave.DeleteObject(rec1);
             }
             _db.SaveChanges();
+            int a = MyClass.myclothcount;
             MvcApplication1.Models.ave avr = new MvcApplication1.Models.ave
             {
                 cin = (decimal)pingjun_in,

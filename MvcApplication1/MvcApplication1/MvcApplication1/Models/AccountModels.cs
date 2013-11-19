@@ -7,7 +7,16 @@ using System.Web.Security;
 
 namespace MvcApplication1.Models
 {
+    class MyClass
+    {
 
+        public static int myclothcount = 0;//最好初始化
+
+
+        public static void MyMethod()
+        {
+        }
+    }
     public class ChangePasswordModel
     {
         [Required]
