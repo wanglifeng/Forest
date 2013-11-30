@@ -16,10 +16,28 @@ namespace MvcApplication1.Controllers
         [HttpPost]
         public ActionResult Add( MvcApplication1.Models.cloth data)
         {
-            data.clothid = _db.cloth.Count() + 1;
-            _db.AddTocloth(data);
-
-            _db.SaveChanges();
+            if (MyClass.ifadd == 1)
+            {
+                MyClass.myclothcount = _db.cloth.Max(s => s.clothid);
+                MyClass.myclothcount=MyClass.myclothcount + 1;
+                data.clothid = MyClass.myclothcount;
+                _db.AddTocloth(data);
+                MyClass.ifadd = 0;
+                _db.SaveChanges();
+            }
+            else
+            {
+                data.clothid = MyClass.myclothcount;
+                var rec1 = _db.cloth.SingleOrDefault(t => t.clothid == data.clothid);
+                if (rec1 != null)
+                {
+                    _db.cloth.DeleteObject(rec1);
+                }
+                data.clothid = MyClass.myclothcount;
+                _db.AddTocloth(data);
+                _db.SaveChanges();
+            }
+       
 
             return new JsonResult() { Data = true };
 
@@ -27,9 +45,39 @@ namespace MvcApplication1.Controllers
        
         public ActionResult Index()
         {
-            //MyClass.myclothcount = _db.cloth.Count();
+            if (MyClass.myclothcount == 0)
+            {
+                MyClass.ifadd = 1;
+            }
+            
             //_db.cloth.ToList().Where(t => t.clothid == MyClass.myclothcount);
-            Indexdata ind = new Indexdata();
+            Indexdata ind = new Indexdata(MyClass.myclothcount);
+
+            if (MyClass.ifadd == 1)
+            {
+                foreach (var item in ind.cloth)
+                {
+                    item.chengfen = "";
+                    item.houdu = "";
+                    item.touqixing = "";
+                    item.xuanchuixing = "";
+                    item.yiling = "";
+                    item.xiukou = "";
+                    item.dibai = "";
+                    item.qitakaikou = "";
+                    item.haoxing = "";
+                    item.lingwei = "";
+                    item.xiukouwei = "";
+                    item.xiabaiwei = "";
+                    item.qita = "";
+                }
+                return View(ind);
+            }
+            else
+            {
+                MyClass.myclothcount = _db.cloth.Max(s => s.clothid);
+            }
+            
             return View(ind);
             //MyCloth cl = new MyCloth(2);
             //return View(cl);

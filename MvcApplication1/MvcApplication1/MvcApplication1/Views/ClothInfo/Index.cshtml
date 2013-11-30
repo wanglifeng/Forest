@@ -1,14 +1,13 @@
 ﻿@model MvcApplication1.Models.Indexdata
-
+<script type="text/javascript" src="@Url.Content("~/Scripts/Add1.js")"></script>
 <script type="text/javascript" src="@Url.Content("~/Scripts/jquery-1.9.1.min.js")"></script>
 <script type="text/javascript" src="@Url.Content("~/Scripts/jquery-ui-1.8.24.min.js")"></script>
 <script type="text/javascript" src="@Url.Content("~/Scripts/bootstrap.min.js")"></script>
-<script type="text/javascMvcApplication1.Models.clothript" src="@Url.Content("~/Scripts/Add1.js")"></script>
+
 
 
 <div align=center valign=middle>
-@*@foreach (var item in Model.cloth)
-  { *@
+
 @*<table   id="dataTable" class="table table-striped table-bordered table-hover table-condensed">
 
     <tr class="info">
@@ -93,16 +92,17 @@
     </tr> 
 
   </table>*@
+@foreach (var item in Model.cloth)
+  { 
  <table  id="dataTable" width="400"  >
   <tr>
         <th>
            属性
         </th>
         <th>
-           数值
+           特征
         </th>
   </tr>
-   <tr class="success">
       <tr class="success">
         <td>
            <label class="control-label" for="inputPassword">成分</label>
@@ -216,7 +216,7 @@
       </td>
     </tr>
   </table>
-     @*       }*@
+        }
    </div>
 @*<form class="form-horizontal" method="post" action="/List/Add">
 <div class="control-group">

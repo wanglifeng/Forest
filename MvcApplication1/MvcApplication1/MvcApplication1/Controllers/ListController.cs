@@ -18,6 +18,7 @@ namespace MvcApplication1.Controllers
             //return View(_db.data);
             //int Pageid = 1;
             int flag = pageid;
+            int cloht_id = MyClass.myclothcount;
             jisuan(flag);
             if(pageid==1)
             {
@@ -55,6 +56,7 @@ namespace MvcApplication1.Controllers
 
         public ActionResult Add([Bind(Exclude = "Id")] MvcApplication1.Models.data data)
         {
+            data.clothid = MyClass.myclothcount;
             _db.AddTodata(data);
 
             _db.SaveChanges();
@@ -94,7 +96,7 @@ namespace MvcApplication1.Controllers
             double vent = 0;
             int count = 0;
             double flowhe = 0;
-            var rec = _db.data.Where(t => t.flag == flag);
+            var rec = _db.data.Where(t => t.flag == flag  && t.clothid==MyClass.myclothcount);
             foreach (var item in rec)
             {
                 count++;
@@ -111,16 +113,38 @@ namespace MvcApplication1.Controllers
             {
                 flowhe = 1;
                 count = 1;
+                pingjun_flow = 0;
+            }
+            else
+            {
+       
+                pingjun_flow = flowhe / count;
             }
 
             pingjun_in = pingjun_in / flowhe;
             pingjun_out = pingjun_out / flowhe;
-            pingjun_flow = flowhe / count;
-            if (pingjun_out == 0)
+
+           // pingjun_flow = flowhe / count;
+            //if (pingjun_out == 0)
+            //{
+            //    pingjun_out = 1;
+            //}
+            if ((pingjun_out - cair) == 0)
             {
-                pingjun_out = 1;
+                vent = 0;
             }
-            vent = ((pingjun_in - pingjun_out) / (pingjun_out - cair)) * pingjun_flow;
+            else
+            {
+                vent = ((pingjun_in - pingjun_out) / (pingjun_out - cair)) * pingjun_flow;
+            }
+            //if (pingjun_out == 1)
+            //{
+            //    pingjun_out = 0;
+            //}
+            //if (pingjun_flow == 1)
+            //{
+            //    pingjun_flow = 0;
+            //}
 
             var rec1 = _db.ave.SingleOrDefault(t => t.flag == flag);
             if (rec1 != null)
@@ -135,7 +159,9 @@ namespace MvcApplication1.Controllers
                 cout = (decimal)pingjun_out,
                 cflow = (decimal)pingjun_flow,
                 flag = flag,
-                name = _db.dic.Single(t => t.flag == flag).name
+                name = _db.dic.Single(t => t.flag == flag).name,
+                tongfeng=(decimal)vent,
+                clothid=MyClass.myclothcount
             };
 
             MvcApplication1.Models.ave average = new MvcApplication1.Models.ave();

@@ -17,7 +17,8 @@ $(document).ready(function () {
         };
         $.post('/ClothInfo/Add', formData, function (data) {
             if (data == true) {
-                alert('ok');
+                //alert('');
+                alert('save successfully');
                 //$('#btnClose').click();
                 // document.location.reload();
             }
