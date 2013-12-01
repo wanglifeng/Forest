@@ -1,31 +1,114 @@
-﻿@model MvcApplication1.Models.cloth
-@{
-    ViewBag.Title = "Index";
-}
+﻿@model MvcApplication1.Models.Indexdata
+<script type="text/javascript" src="@Url.Content("~/Scripts/Add1.js")"></script>
 <script type="text/javascript" src="@Url.Content("~/Scripts/jquery-1.9.1.min.js")"></script>
 <script type="text/javascript" src="@Url.Content("~/Scripts/jquery-ui-1.8.24.min.js")"></script>
 <script type="text/javascript" src="@Url.Content("~/Scripts/bootstrap.min.js")"></script>
-<script type="text/javascript" src="@Url.Content("~/Scripts/Add1.js")"></script>
+
 
 
 <div align=center valign=middle>
+
+@*<table   id="dataTable" class="table table-striped table-bordered table-hover table-condensed">
+
+    <tr class="info">
+    <td>
+     成分
+    </td>
+    <td>
+      <input type="text" name="namename" id="nn" value= @Html.DisplayFor(modelItem => item.chengfen)  />
+     </td>
+    <td>
+     厚度
+    </td>
+    <td>
+      <input type="text" name="namename" id="nn" value= @Html.DisplayFor(modelItem => item.houdu)  />
+    </td>
+    <td>
+     透气性
+    </td>
+    <td>
+      <input type="text" name="namename" id="nn" value= @Html.DisplayFor(modelItem => item.touqixing)  />
+    </td>
+    <td>
+     悬垂性
+    </td>
+    <td>
+      <input type="text" name="namename" id="nn" value= @Html.DisplayFor(modelItem => item.xuanchuixing)  />
+    </td>
+    <td>
+     衣领
+    </td>
+    <td>
+      <input type="text" name="namename" id="nn" value= @Html.DisplayFor(modelItem => item.yiling)  />
+    </td>
+    <td>
+     袖口
+    </td>
+    <td>
+      <input type="text" name="namename" id="nn" value= @Html.DisplayFor(modelItem => item.xiukou)  />
+    </td>
+    <td>
+     底摆
+    </td>
+    <td>
+      <input type="text" name="namename" id="nn" value= @Html.DisplayFor(modelItem => item.dibai)  />
+    </td>
+    <td>
+     其它开口部位
+    </td>
+    <td>
+      <input type="text" name="namename" id="nn" value= @Html.DisplayFor(modelItem => item.qitakaikou)  />
+    </td>
+    <td>
+     号型
+    </td>
+    <td>
+      <input type="text" name="namename" id="nn" value= @Html.DisplayFor(modelItem => item.haoxing)  />
+    </td>
+    <td>
+     领围
+    </td>
+    <td>
+      <input type="text" name="namename" id="nn" value= @Html.DisplayFor(modelItem => item.lingwei)  />
+    </td>
+    <td>
+     袖口围
+    </td>
+    <td>
+      <input type="text" name="namename" id="nn" value= @Html.DisplayFor(modelItem => item.xiukouwei)  />
+    </td>
+    <td>
+    下摆围
+    </td>
+    <td>
+      <input type="text" name="namename" id="nn" value= @Html.DisplayFor(modelItem => item.xiabaiwei)  />
+    </td>
+    <td>
+    其他
+    </td>
+    <td>
+      <input type="text" name="namename" id="nn" value= @Html.DisplayFor(modelItem => item.qita)  />
+    </td>
+    </tr> 
+
+  </table>*@
+@foreach (var item in Model.cloth)
+  { 
  <table  id="dataTable" width="400"  >
   <tr>
         <th>
            属性
         </th>
         <th>
-           数值
+           特征
         </th>
   </tr>
-   <tr class="success">
       <tr class="success">
         <td>
            <label class="control-label" for="inputPassword">成分</label>
         </td>
         <td>
-        <label class="control-label" for="inputEmail">@Html.LabelFor(m => m.chengfen)</label>
-         <input type="text" name="out0" id="chengfen" value= @Html.DisplayFor(m => m.chengfen) >
+         <input type="text" name="out0" id="chengfen" value= @Html.DisplayFor(m => item.chengfen) >
         </td>
     </tr>
     <tr class="success">
@@ -33,7 +116,7 @@
            <label class="control-label" for="inputPassword">厚度</label>
         </td>
         <td>
-         <input type="text" name="out0" id="houdu" value= @Html.DisplayFor(m => m.houdu) >
+         <input type="text" name="out0" id="houdu" value= @Html.DisplayFor(m => item.houdu) >
         </td>
     </tr>
    <tr class="success">
@@ -41,7 +124,7 @@
            <label class="control-label" for="inputPassword">透气性</label>
         </td>
         <td>
-         <input type="text" name="out0" id="touqixing" value= @Html.DisplayFor(m => m.touqixing) >
+         <input type="text" name="out0" id="touqixing" value= @Html.DisplayFor(m => item.touqixing) >
         </td>
     </tr>
     <tr class="success">
@@ -49,7 +132,7 @@
            <label class="control-label" for="inputPassword">悬垂性</label>
         </td>
         <td>
-         <input type="text" name="out0" id="xuanchuixing" value= @Html.DisplayFor(m => m.xuanchuixing) >
+         <input type="text" name="out0" id="xuanchuixing" value= @Html.DisplayFor(m => item.xuanchuixing) >
         </td>
     </tr>
      <tr class="success">
@@ -57,7 +140,7 @@
            <label class="control-label" for="inputPassword">衣领</label>
         </td>
         <td>
-         <input type="text" name="out0" id="yiling" value= @Html.DisplayFor(m => m.yiling) >
+         <input type="text" name="out0" id="yiling" value= @Html.DisplayFor(m => item.yiling) >
         </td>
     </tr>
      <tr class="success">
@@ -65,7 +148,7 @@
            <label class="control-label" for="inputPassword">袖口</label>
         </td>
         <td>
-         <input type="text" name="out0" id="xiukou" value= @Html.DisplayFor(m => m.xiukou) >
+         <input type="text" name="out0" id="xiukou" value= @Html.DisplayFor(m =>item.xiukou) >
         </td>
     </tr>
      <tr class="success">
@@ -73,7 +156,7 @@
            <label class="control-label" for="inputPassword">底摆</label>
         </td>
         <td>
-         <input type="text" name="out0" id="dibai" value= @Html.DisplayFor(m => m.dibai) >
+         <input type="text" name="out0" id="dibai" value= @Html.DisplayFor(m => item.dibai) >
         </td>
     </tr>
     <tr class="success">
@@ -81,7 +164,7 @@
            <label class="control-label" for="inputPassword">其它开口部位</label>
         </td>
         <td>
-         <input type="text" name="out0" id="qitakaikou" value= @Html.DisplayFor(m => m.qitakaikou) >
+         <input type="text" name="out0" id="qitakaikou" value= @Html.DisplayFor(m => item.qitakaikou) >
         </td>
     </tr>
     <tr class="success">
@@ -89,7 +172,7 @@
            <label class="control-label" for="inputPassword">号型</label>
         </td>
         <td>
-         <input type="text" name="out0" id="haoxing" value= @Html.DisplayFor(m => m.haoxing) >
+         <input type="text" name="out0" id="haoxing" value= @Html.DisplayFor(m => item.haoxing) >
         </td>
     </tr>
      <tr class="success">
@@ -97,7 +180,7 @@
            <label class="control-label" for="inputPassword">领围</label>
         </td>
         <td>
-         <input type="text" name="out0" id="lingwei" value= @Html.DisplayFor(m => m.lingwei) >
+         <input type="text" name="out0" id="lingwei" value= @Html.DisplayFor(m => item.lingwei) >
         </td>
     </tr>
     <tr class="success">
@@ -105,7 +188,7 @@
            <label class="control-label" for="inputPassword">袖口围</label>
         </td>
         <td>
-         <input type="text" name="out0" id="xiukouwei" value= @Html.DisplayFor(m => m.xiukouwei) >
+         <input type="text" name="out0" id="xiukouwei" value= @Html.DisplayFor(m => item.xiukouwei) >
         </td>
     </tr>
     <tr class="success">
@@ -113,7 +196,7 @@
            <label class="control-label" for="inputPassword">下摆围</label>
         </td>
         <td>
-         <input type="text" name="out0" id="xiabaiwei" value= @Html.DisplayFor(m => m.xiabaiwei) >
+         <input type="text" name="out0" id="xiabaiwei" value= @Html.DisplayFor(m => item.xiabaiwei) >
         </td>
     </tr>
       <tr class="success">
@@ -121,9 +204,10 @@
            <label class="control-label" for="inputPassword">其他</label>
         </td>
         <td>
-         <input type="text" name="out0" id="qita" value= @Html.DisplayFor(m => m.qita) >
+         <input type="text" name="out0" id="qita" value= @Html.DisplayFor(m => item.qita) >
         </td>
     </tr>
+
     <tr>
      <td>
       </td>
@@ -132,7 +216,8 @@
       </td>
     </tr>
   </table>
-  </div>
+        }
+   </div>
 @*<form class="form-horizontal" method="post" action="/List/Add">
 <div class="control-group">
     <label class="control-label" for="inputEmail">成分</label>

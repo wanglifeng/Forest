@@ -6,6 +6,9 @@
       function gotoForcast(linkObj) {
           $(linkObj).attr('href', "/Forecast/forcast?cair=" + $('#cair').val());
       }
+      function gotoForcast1(linkObj) {
+          $(linkObj).attr('href', "/Forecast/export?cair=" + $('#cair').val());
+      }
  </script>  
 <form name="myform" id="form1" runat="server">  
 <table   id="dataTable" class="table table-striped table-bordered table-hover table-condensed">
@@ -17,7 +20,8 @@
    <td><input type="text" name="cair" id="cair" value="@ViewBag.mess"><br/><a href="#" onclick="gotoForcast(this)" role="button" class="btn  btn-primary " >预测通风值</a>
     </td>
    <td>
-   <input type="text" name="outpingju" id="nn" value="@ViewBag.Message" />  
+   <input type="text" name="outpingju" id="nn" value="@ViewBag.Message" /><br/>
+   <a href="#" onclick="gotoForcast1(this)" role="button" class="btn  btn-primary  " >导出数据</a>  
    </td>
    </tr> 
   </table>

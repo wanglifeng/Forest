@@ -372,24 +372,24 @@ namespace MvcApplication1.Models
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> clothId
+        public Nullable<global::System.Int32> clothid
         {
             get
             {
-                return _clothId;
+                return _clothid;
             }
             set
             {
-                OnclothIdChanging(value);
-                ReportPropertyChanging("clothId");
-                _clothId = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("clothId");
-                OnclothIdChanged();
+                OnclothidChanging(value);
+                ReportPropertyChanging("clothid");
+                _clothid = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("clothid");
+                OnclothidChanged();
             }
         }
-        private Nullable<global::System.Int32> _clothId;
-        partial void OnclothIdChanging(Nullable<global::System.Int32> value);
-        partial void OnclothIdChanged();
+        private Nullable<global::System.Int32> _clothid;
+        partial void OnclothidChanging(Nullable<global::System.Int32> value);
+        partial void OnclothidChanged();
 
         #endregion
     
@@ -910,6 +910,30 @@ namespace MvcApplication1.Models
         private Nullable<global::System.Int32> _flag;
         partial void OnflagChanging(Nullable<global::System.Int32> value);
         partial void OnflagChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> clothid
+        {
+            get
+            {
+                return _clothid;
+            }
+            set
+            {
+                OnclothidChanging(value);
+                ReportPropertyChanging("clothid");
+                _clothid = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("clothid");
+                OnclothidChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _clothid;
+        partial void OnclothidChanging(Nullable<global::System.Int32> value);
+        partial void OnclothidChanged();
 
         #endregion
     
